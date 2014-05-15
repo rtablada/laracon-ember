@@ -13,12 +13,12 @@ class Posts extends \BaseController
 
 	public function index()
 	{
-		return $this->post->all();
+		return $this->post->with('comments')->get();
 	}
 
 	public function show($id)
 	{
-		return $this->post->find($id);
+		return $this->post->with('comments')->find($id);
 	}
 
 	public function store()
@@ -32,7 +32,7 @@ class Posts extends \BaseController
 	{
 		$input = Input::json('post');
 
-		$post = $this->post->findOrFail($id);
+		$post = $this->post->with('comments')->findOrFail($id);
 		$post->update($input);
 
 		return $post;

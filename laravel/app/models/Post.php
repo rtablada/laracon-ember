@@ -8,6 +8,6 @@ class Post extends Eloquent
 
 	public function comments()
 	{
-		$this->hasMany('Comment');
+		return $this->hasMany('Comment');
 	}
 }

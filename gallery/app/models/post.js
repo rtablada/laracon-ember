@@ -12,5 +12,7 @@ export default DS.Model.extend({
 			var text = this.get('body').split(/[^\S\n]+/).slice(0,10).join(" ");
 			return markdown.toHTML(text);
 		}
-	}.property('body')
+	}.property('body'),
+
+	comments: DS.hasMany('comment')
 });
