@@ -27,4 +27,14 @@ class Posts extends \BaseController
 
 		return $this->post->create($input);
 	}
+
+	public function update($id)
+	{
+		$input = Input::json('post');
+
+		$post = $this->post->findOrFail($id);
+		$post->update($input);
+
+		return $post;
+	}
 }

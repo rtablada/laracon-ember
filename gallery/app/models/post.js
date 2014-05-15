@@ -9,7 +9,7 @@ export default DS.Model.extend({
 
 	short: function() {
 		if (this.get('body')) {
-			var text = this.get('body').split(/\s+/).slice(0,5).join(" ");
+			var text = this.get('body').split(/[^\S\n]+/).slice(0,10).join(" ");
 			return markdown.toHTML(text);
 		}
 	}.property('body')
