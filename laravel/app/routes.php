@@ -11,15 +11,14 @@
 |
 */
 
-
-// Route::group(['prefix' => 'api'], function() {
+Route::group(['prefix' => 'api'], function() {
 	Route::get('posts', 'Api\\Posts@index');
 	Route::post('posts', 'Api\\Posts@store');
 	Route::get('posts/{id}', 'Api\\Posts@show');
 	Route::put('posts/{id}', 'Api\\Posts@update');
-// });
+});
 
-Route::get('/{data?}', function()
+Route::get('{data?}', function()
 {
 	return View::make('home');
 })->where('data', '.*');
