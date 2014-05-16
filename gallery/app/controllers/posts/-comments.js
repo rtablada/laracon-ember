@@ -4,5 +4,7 @@ export default Ember.ArrayController.extend({
 		return this.store.createRecord('comment', {
 			post: this.get('controllers.posts/show.model')
 		});
-	}.property()
+	}.property(),
+	sortProperties: ['id'],
+	sortAscending: false
 });

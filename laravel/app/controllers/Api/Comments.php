@@ -35,7 +35,10 @@ class Comments extends \BaseController
 			'post_id' => $input['post'],
 		];
 
-		return $this->comment->create($attrs);
+		$comment = $this->comment->create($attrs);
+		$comment->load('post');
+
+		return $comment;
 	}
 
 	public function update($id)

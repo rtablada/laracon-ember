@@ -7,5 +7,12 @@ export default DS.Model.extend({
 		}
 	}.property('body'),
 
-	post: DS.belongsTo('post', {async: true})
+	post: DS.belongsTo('post'),
+
+	didCreate: function() {
+		var self = this;
+		Em.RSVP.resolve(this.get('post')).then(function(post){
+			post.get('comments').pushObject(self);
+		});
+	}
 });
