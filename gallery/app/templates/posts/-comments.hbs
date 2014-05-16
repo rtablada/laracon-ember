@@ -1,0 +1,10 @@
+<h3>Comments</h3>
+
+{{render 'posts/comments/-form' newComment}}
+
+<hr>
+
+{{#each}}
+	{{{compiledBody}}}
+	<hr>
+{{/each}}
