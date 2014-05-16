@@ -16,6 +16,11 @@ Route::group(['prefix' => 'api'], function() {
 	Route::post('posts', 'Api\\Posts@store');
 	Route::get('posts/{id}', 'Api\\Posts@show');
 	Route::put('posts/{id}', 'Api\\Posts@update');
+
+	Route::get('comments', 'Api\\Comments@index');
+	Route::post('comments', 'Api\\Comments@store');
+	Route::get('comments/{id}', 'Api\\Comments@show');
+	Route::put('comments/{id}', 'Api\\Comments@update');
 });
 
 Route::get('{data?}', function()

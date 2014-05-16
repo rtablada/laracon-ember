@@ -14,5 +14,5 @@ export default DS.Model.extend({
 		}
 	}.property('body'),
 
-	comments: DS.hasMany('comment')
+	comments: DS.hasMany('comment', {async: true})
 });

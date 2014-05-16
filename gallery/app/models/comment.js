@@ -7,5 +7,5 @@ export default DS.Model.extend({
 		}
 	}.property('body'),
 
-	post: DS.belongsTo('post')
+	post: DS.belongsTo('post', {async: true})
 });

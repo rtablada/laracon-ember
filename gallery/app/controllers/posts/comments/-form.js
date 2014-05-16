@@ -3,7 +3,9 @@ export default Ember.ObjectController.extend({
 		save: function() {
 			var self = this;
 			this.get('model').save().then(function() {
-				self.transitionTo('posts.index');
+				this.content = this.store.createRecord('comment', {
+					post: this.get('post')
+				});
 			});
 		}
 	}
