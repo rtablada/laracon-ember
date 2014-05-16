@@ -3,9 +3,9 @@ export default Ember.ObjectController.extend({
 		save: function() {
 			var self = this;
 			this.get('model').save().then(function() {
-				this.content = this.store.createRecord('comment', {
-					post: this.get('post')
-				});
+				self.set('content', self.store.createRecord('comment', {
+					post: self.get('post')
+				}));
 			});
 		}
 	}
