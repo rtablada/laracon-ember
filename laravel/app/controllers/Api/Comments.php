@@ -13,7 +13,13 @@ class Comments extends \BaseController
 
 	public function index()
 	{
-		return $this->comment->with('post')->get();
+		$ids = Input::get('ids');
+
+		if ($ids) {
+			return $this->comment->whereIn('id', $ids)->with('post')->get();
+		} else {
+			return $this->comment->with('post')->get();
+		}
 	}
 
 	public function show($id)
